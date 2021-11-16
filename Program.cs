@@ -6,7 +6,11 @@ namespace guessing_game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Try to guess the random number!");
+            Console.Write("Your guess: ");
+            int userGuess = int.Parse(Console.ReadLine());
+            Console.Write("Your guess: ");
+            Console.WriteLine(userGuess);
         }
     }
 }
