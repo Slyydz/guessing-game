@@ -11,13 +11,20 @@ namespace guessing_game
             int userGuess = int.Parse(Console.ReadLine());
             int secretNum = 42;
 
-            if (userGuess == secretNum)
+
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine("Correct!");
-            }
-            else
-            {
-                Console.WriteLine("Incorrect.");
+                if (userGuess == secretNum)
+                {
+                    Console.WriteLine("Correct!");
+                    System.Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect.");
+                    Console.Write("Try again: ");
+                    userGuess = int.Parse(Console.ReadLine());
+                }
             }
         }
     }
