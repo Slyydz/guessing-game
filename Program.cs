@@ -8,7 +8,7 @@ namespace guessing_game
         {
 
             Console.WriteLine("Try to guess the random number!");
-            Console.WriteLine("Difficulty (Easy, Medium, Hard): ");
+            Console.WriteLine("Difficulty (Easy, Medium, Hard, Cheater): ");
             string difficulty = Console.ReadLine().ToLower();
 
             switch (difficulty)
@@ -21,6 +21,9 @@ namespace guessing_game
                     break;
                 case "hard":
                     runFunc(4);
+                    break;
+                case "cheater":
+                    runFuncInf();
                     break;
                 default:
                     Console.WriteLine("Not an option. Default setting: Easy");
@@ -43,7 +46,7 @@ namespace guessing_game
                     if (userGuess == secretNum)
                     {
                         Console.WriteLine("Correct!");
-                        System.Environment.Exit(0);
+                        break;
                     }
                     else if (userGuess > secretNum)
                     {
@@ -71,6 +74,36 @@ namespace guessing_game
                 {
                     Console.WriteLine("Incorrect. Guess too high");
                 }
+            }
+
+            void runFuncInf()
+            {
+                Random randInt = new Random();
+
+                int secretNum = randInt.Next(1, 100);
+
+                Console.Write("Input your guess: ");
+                int userGuess = int.Parse(Console.ReadLine());
+
+                while (userGuess != secretNum)
+                {
+                    if (userGuess > secretNum)
+                    {
+                        Console.WriteLine("Incorrect. Guess too high");
+                        Console.Write($"Try again: ");
+                        userGuess = int.Parse(Console.ReadLine());
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect. Guess too low");
+                        Console.Write($"Try again: ");
+                        userGuess = int.Parse(Console.ReadLine());
+                    }
+                };
+
+                Console.WriteLine("Correct!");
+
+
             }
         }
     }
