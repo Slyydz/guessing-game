@@ -37,7 +37,7 @@ namespace guessing_game
                 {
                     Random randInt = new Random();
 
-                    int secretNum = randInt.Next(1, 100);
+                    int secretNum = randInt.Next(1, 101);
 
                     Console.Write("Input your guess: ");
                     int userGuess = int.Parse(Console.ReadLine());
@@ -88,7 +88,7 @@ namespace guessing_game
             {
                 Random randInt = new Random();
 
-                int secretNum = randInt.Next(1, 100);
+                int secretNum = randInt.Next(1, 101);
 
                 Console.Write("Input your guess: ");
                 int userGuess = int.Parse(Console.ReadLine());
