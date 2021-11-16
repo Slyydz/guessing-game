@@ -14,16 +14,22 @@ namespace guessing_game
             int secretNum = randInt.Next(1, 100);
 
 
-            for (int i = 1; i < 4; i++)
+            for (int i = 1; i <= 3; i++)
             {
                 if (userGuess == secretNum)
                 {
                     Console.WriteLine("Correct!");
                     System.Environment.Exit(0);
                 }
+                else if (userGuess > secretNum)
+                {
+                    Console.WriteLine("Incorrect. Guess too high");
+                    Console.Write($"Try again ({4 - (i)} left!): ");
+                    userGuess = int.Parse(Console.ReadLine());
+                }
                 else
                 {
-                    Console.WriteLine("Incorrect.");
+                    Console.WriteLine("Incorrect. Guess too low");
                     Console.Write($"Try again ({4 - (i)} left!): ");
                     userGuess = int.Parse(Console.ReadLine());
                 }
