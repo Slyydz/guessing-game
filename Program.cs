@@ -33,47 +33,55 @@ namespace guessing_game
 
             void runFunc(int input)
             {
-                Random randInt = new Random();
-
-                int secretNum = randInt.Next(1, 100);
-
-                Console.Write("Input your guess: ");
-                int userGuess = int.Parse(Console.ReadLine());
-
-                for (int i = 0; i < input - 1; i++)
+                try
                 {
+                    Random randInt = new Random();
+
+                    int secretNum = randInt.Next(1, 100);
+
+                    Console.Write("Input your guess: ");
+                    int userGuess = int.Parse(Console.ReadLine());
+
+                    for (int i = 0; i < input - 1; i++)
+                    {
+
+                        if (userGuess == secretNum)
+                        {
+                            Console.WriteLine("Correct!");
+                            break;
+                        }
+                        else if (userGuess > secretNum)
+                        {
+                            Console.WriteLine("Incorrect. Guess too high");
+                            Console.Write($"Try again ({input - (i + 1)} left!): ");
+                            userGuess = int.Parse(Console.ReadLine());
+                        }
+                        else
+                        {
+                            Console.WriteLine("Incorrect. Guess too low");
+                            Console.Write($"Try again ({input - (i + 1)} left!): ");
+                            userGuess = int.Parse(Console.ReadLine());
+                        }
+                    };
 
                     if (userGuess == secretNum)
                     {
                         Console.WriteLine("Correct!");
-                        break;
                     }
                     else if (userGuess > secretNum)
                     {
                         Console.WriteLine("Incorrect. Guess too high");
-                        Console.Write($"Try again ({input - (i + 1)} left!): ");
-                        userGuess = int.Parse(Console.ReadLine());
                     }
                     else
                     {
-                        Console.WriteLine("Incorrect. Guess too low");
-                        Console.Write($"Try again ({input - (i + 1)} left!): ");
-                        userGuess = int.Parse(Console.ReadLine());
-                    }
+                        Console.WriteLine("Incorrect. Guess too high");
+                    };
+                }
+                catch
+                {
+                    Console.WriteLine("Integers only please.");
                 }
 
-                if (userGuess == secretNum)
-                {
-                    Console.WriteLine("Correct!");
-                }
-                else if (userGuess > secretNum)
-                {
-                    Console.WriteLine("Incorrect. Guess too high");
-                }
-                else
-                {
-                    Console.WriteLine("Incorrect. Guess too high");
-                }
             }
 
             void runFuncInf()
