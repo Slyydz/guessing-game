@@ -12,7 +12,7 @@ namespace guessing_game
             int secretNum = 42;
 
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 1; i < 4; i++)
             {
                 if (userGuess == secretNum)
                 {
@@ -22,7 +22,7 @@ namespace guessing_game
                 else
                 {
                     Console.WriteLine("Incorrect.");
-                    Console.Write("Try again: ");
+                    Console.Write($"Try again ({i + 1}): ");
                     userGuess = int.Parse(Console.ReadLine());
                 }
             }
