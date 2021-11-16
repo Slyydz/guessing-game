@@ -9,7 +9,9 @@ namespace guessing_game
             Console.WriteLine("Try to guess the random number!");
             Console.Write("Input your guess: ");
             int userGuess = int.Parse(Console.ReadLine());
-            int secretNum = 42;
+            Random randInt = new Random();
+
+            int secretNum = randInt.Next(1, 100);
 
 
             for (int i = 1; i < 4; i++)
@@ -22,7 +24,7 @@ namespace guessing_game
                 else
                 {
                     Console.WriteLine("Incorrect.");
-                    Console.Write($"Try again ({i + 1}): ");
+                    Console.Write($"Try again ({4 - (i)} left!): ");
                     userGuess = int.Parse(Console.ReadLine());
                 }
             }
