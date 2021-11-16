@@ -7,10 +7,18 @@ namespace guessing_game
         static void Main(string[] args)
         {
             Console.WriteLine("Try to guess the random number!");
-            Console.Write("Your guess: ");
+            Console.Write("Input your guess: ");
             int userGuess = int.Parse(Console.ReadLine());
-            Console.Write("Your guess: ");
-            Console.WriteLine(userGuess);
+            int secretNum = 42;
+
+            if (userGuess == secretNum)
+            {
+                Console.WriteLine("Correct!");
+            }
+            else
+            {
+                Console.WriteLine("Incorrect.");
+            }
         }
     }
 }
